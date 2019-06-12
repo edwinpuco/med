@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PacienteViewDlg" widgetVar="PacienteViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewPacienteTitle}" closeOnEscape="true">
+
+            <h:form id="PacienteViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{pacienteController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewPacienteLabel_fechanacimiento}"/>
+                        <h:outputText value="#{pacienteController.selected.fechanacimiento}" title="#{myBundle.ViewPacienteTitle_fechanacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="#{myBundle.ViewPacienteLabel_citarealizada}"/>
+                        <h:outputText value="#{pacienteController.selected.citarealizada}" title="#{myBundle.ViewPacienteTitle_citarealizada}"/>
+
+                        <h:outputText value="#{myBundle.ViewPacienteLabel_citacancelada}"/>
+                        <h:outputText value="#{pacienteController.selected.citacancelada}" title="#{myBundle.ViewPacienteTitle_citacancelada}"/>
+
+                        <h:outputText value="#{myBundle.ViewPacienteLabel_idpaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.idpaciente}" title="#{myBundle.ViewPacienteTitle_idpaciente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="PF('PacienteViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="EstablecimientoEditPage" lazy="true">
+        <pm:header title="#{myBundle.EditEstablecimientoTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:EstablecimientoListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="EstablecimientoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{establecimientoController.selected != null}">
+
+                        <pm:field>
+                            <h:outputLabel value="#{myBundle.EditEstablecimientoLabel_idestablecimiento}" for="idestablecimiento" />
+                            <h:outputText id="idestablecimiento" value="#{establecimientoController.selected.idestablecimiento}" />
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditEstablecimientoLabel_nombreestablecimiento}" for="nombreestablecimiento" />
+                            <p:inputText id="nombreestablecimiento" value="#{establecimientoController.selected.nombreestablecimiento}" title="#{myBundle.EditEstablecimientoTitle_nombreestablecimiento}" size="100" maxlength="100"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditEstablecimientoLabel_telefonoestablecimiento}" for="telefonoestablecimiento" />
+                            <p:inputText id="telefonoestablecimiento" value="#{establecimientoController.selected.telefonoestablecimiento}" title="#{myBundle.EditEstablecimientoTitle_telefonoestablecimiento}" size="10" maxlength="10"/>
+                        </pm:field>
+                    </p:outputPanel>
+                    <p:commandButton actionListener="#{establecimientoController.save}" value="#{myBundle.Save}" update="#{mobilePageController.updatableWidgets(component,'display,:EstablecimientoListPage:EstablecimientoListForm:datalist,:growl')}" action="#{mobilePageController.navigateWithHistory('pm:EstablecimientoListPage')}"/>
+
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

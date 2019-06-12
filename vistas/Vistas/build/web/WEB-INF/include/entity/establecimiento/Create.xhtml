@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstablecimientoCreateDlg" widgetVar="EstablecimientoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateEstablecimientoTitle}" closeOnEscape="true">
+
+            <h:form id="EstablecimientoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{establecimientoController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateEstablecimientoLabel_idestablecimiento}" for="idestablecimiento" />
+                        <p:inputText id="idestablecimiento" value="#{establecimientoController.selected.idestablecimiento}" title="#{myBundle.CreateEstablecimientoTitle_idestablecimiento}" required="true" requiredMessage="#{myBundle.CreateEstablecimientoRequiredMessage_idestablecimiento}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateEstablecimientoLabel_nombreestablecimiento}" for="nombreestablecimiento" />
+                        <p:inputText id="nombreestablecimiento" value="#{establecimientoController.selected.nombreestablecimiento}" title="#{myBundle.CreateEstablecimientoTitle_nombreestablecimiento}" size="100" maxlength="100"/>
+
+                        <p:outputLabel value="#{myBundle.CreateEstablecimientoLabel_telefonoestablecimiento}" for="telefonoestablecimiento" />
+                        <p:inputText id="telefonoestablecimiento" value="#{establecimientoController.selected.telefonoestablecimiento}" title="#{myBundle.CreateEstablecimientoTitle_telefonoestablecimiento}" size="10" maxlength="10"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{establecimientoController.saveNew}" value="#{myBundle.Save}" update="display,:EstablecimientoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('EstablecimientoCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('EstablecimientoCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

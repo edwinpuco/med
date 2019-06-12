@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="PacienteCreatePage" lazy="true">
+        <pm:header title="#{myBundle.CreatePacienteTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:PacienteListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="PacienteCreateForm">
+
+                <h:panelGroup id="display" rendered="#{pacienteController.selected != null}">
+                    <p:outputPanel>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreatePacienteLabel_fechanacimiento}" for="fechanacimiento" />
+                            <p:calendar id="fechanacimiento" pattern="MM/dd/yyyy" value="#{pacienteController.selected.fechanacimiento}" title="#{myBundle.CreatePacienteTitle_fechanacimiento}"  showOn="button"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreatePacienteLabel_citarealizada}" for="citarealizada" />
+                            <p:inputText id="citarealizada" value="#{pacienteController.selected.citarealizada}" title="#{myBundle.CreatePacienteTitle_citarealizada}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreatePacienteLabel_citacancelada}" for="citacancelada" />
+                            <p:inputText id="citacancelada" value="#{pacienteController.selected.citacancelada}" title="#{myBundle.CreatePacienteTitle_citacancelada}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreatePacienteLabel_idpaciente}" for="idpaciente" />
+                            <p:inputText id="idpaciente" value="#{pacienteController.selected.idpaciente}" title="#{myBundle.CreatePacienteTitle_idpaciente}" required="true" requiredMessage="#{myBundle.CreatePacienteRequiredMessage_idpaciente}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                    <p:commandButton actionListener="#{pacienteController.saveNew}" value="#{myBundle.Save}" update="display,:PacienteListPage:PacienteListForm:datalist,:growl" action="#{mobilePageController.navigateWithHistory('pm:PacienteListPage')}"/>
+
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

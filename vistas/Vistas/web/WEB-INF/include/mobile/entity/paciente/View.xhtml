@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="PacienteViewPage" lazy="true">
+        <pm:header title="#{myBundle.ViewPacienteTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:PacienteListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="PacienteViewForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{pacienteController.selected != null}">
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewPacienteLabel_fechanacimiento}"/>
+                            <h:outputText value="#{pacienteController.selected.fechanacimiento}" title="#{myBundle.ViewPacienteTitle_fechanacimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewPacienteLabel_citarealizada}"/>
+                            <h:outputText value="#{pacienteController.selected.citarealizada}" title="#{myBundle.ViewPacienteTitle_citarealizada}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewPacienteLabel_citacancelada}"/>
+                            <h:outputText value="#{pacienteController.selected.citacancelada}" title="#{myBundle.ViewPacienteTitle_citacancelada}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewPacienteLabel_idpaciente}"/>
+                            <h:outputText value="#{pacienteController.selected.idpaciente}" title="#{myBundle.ViewPacienteTitle_idpaciente}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PacienteCreateDlg" widgetVar="PacienteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreatePacienteTitle}" closeOnEscape="true">
+
+            <h:form id="PacienteCreateForm">
+
+                <h:panelGroup id="display" rendered="#{pacienteController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreatePacienteLabel_fechanacimiento}" for="fechanacimiento" />
+                        <p:calendar id="fechanacimiento" pattern="MM/dd/yyyy" value="#{pacienteController.selected.fechanacimiento}" title="#{myBundle.CreatePacienteTitle_fechanacimiento}"  showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.CreatePacienteLabel_citarealizada}" for="citarealizada" />
+                        <p:inputText id="citarealizada" value="#{pacienteController.selected.citarealizada}" title="#{myBundle.CreatePacienteTitle_citarealizada}"/>
+
+                        <p:outputLabel value="#{myBundle.CreatePacienteLabel_citacancelada}" for="citacancelada" />
+                        <p:inputText id="citacancelada" value="#{pacienteController.selected.citacancelada}" title="#{myBundle.CreatePacienteTitle_citacancelada}"/>
+
+                        <p:outputLabel value="#{myBundle.CreatePacienteLabel_idpaciente}" for="idpaciente" />
+                        <p:inputText id="idpaciente" value="#{pacienteController.selected.idpaciente}" title="#{myBundle.CreatePacienteTitle_idpaciente}" required="true" requiredMessage="#{myBundle.CreatePacienteRequiredMessage_idpaciente}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pacienteController.saveNew}" value="#{myBundle.Save}" update="display,:PacienteListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('PacienteCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('PacienteCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

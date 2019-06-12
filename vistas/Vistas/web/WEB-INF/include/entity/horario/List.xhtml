@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="HorarioListForm">
+
+        <p:panel header="#{myBundle.ListHorarioTitle}">
+            <p:contextMenu id="HorarioDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{myBundle.Create}" onclick="document.getElementById('HorarioListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('HorarioListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('HorarioListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('HorarioListForm:deleteButton').click();" icon="ui-icon-trash"/>
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{horarioController.items}"
+                         lazy="false"
+                         rowKey="#{item.idhorario}"
+                         var="item"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{horarioController.selected}"
+                         filteredValue="#{horarioController.filteredItems}">
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{horarioController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.idhorario}"  <<< Remove this line
+                -->
+
+
+                <p:ajax event="rowSelect"   update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:HorarioDataTableContextMenu"/>
+                <p:ajax event="rowUnselect" update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:HorarioDataTableContextMenu"/>
+                <p:ajax event="contextMenu" update="@form:createButton @form:viewButton @form:editButton @form:deleteButton"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('HorarioListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.idhorario}" filterBy="#{item.idhorario}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListHorarioTitle_idhorario}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idhorario}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.dia}" filterBy="#{item.dia}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListHorarioTitle_dia}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.dia}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.horainicio}" filterBy="#{item.horainicio}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListHorarioTitle_horainicio}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.horainicio}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column sortBy="#{item.horafin}" filterBy="#{item.horafin}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListHorarioTitle_horafin}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.horafin}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{horarioController.prepareCreate}" update=":HorarioCreateForm" oncomplete="PF('HorarioCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":HorarioViewForm" oncomplete="PF('HorarioViewDialog').show()" disabled="#{empty horarioController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":HorarioEditForm" oncomplete="PF('HorarioEditDialog').show()" disabled="#{empty horarioController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{horarioController.delete}" update=":growl,datalist" disabled="#{empty horarioController.selected}">
+                <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/WEB-INF/include/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstablecimientoViewDlg" widgetVar="EstablecimientoViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewEstablecimientoTitle}" closeOnEscape="true">
+
+            <h:form id="EstablecimientoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{establecimientoController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewEstablecimientoLabel_idestablecimiento}"/>
+                        <h:outputText value="#{establecimientoController.selected.idestablecimiento}" title="#{myBundle.ViewEstablecimientoTitle_idestablecimiento}"/>
+
+                        <h:outputText value="#{myBundle.ViewEstablecimientoLabel_nombreestablecimiento}"/>
+                        <h:outputText value="#{establecimientoController.selected.nombreestablecimiento}" title="#{myBundle.ViewEstablecimientoTitle_nombreestablecimiento}"/>
+
+                        <h:outputText value="#{myBundle.ViewEstablecimientoLabel_telefonoestablecimiento}"/>
+                        <h:outputText value="#{establecimientoController.selected.telefonoestablecimiento}" title="#{myBundle.ViewEstablecimientoTitle_telefonoestablecimiento}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="PF('EstablecimientoViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

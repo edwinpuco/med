@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="MedicoCreatePage" lazy="true">
+        <pm:header title="#{myBundle.CreateMedicoTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:MedicoListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="MedicoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{medicoController.selected != null}">
+                    <p:outputPanel>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateMedicoLabel_tiempoatencion}" for="tiempoatencion" />
+                            <p:inputText id="tiempoatencion" value="#{medicoController.selected.tiempoatencion}" title="#{myBundle.CreateMedicoTitle_tiempoatencion}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateMedicoLabel_calificacionmedico}" for="calificacionmedico" />
+                            <p:inputText id="calificacionmedico" value="#{medicoController.selected.calificacionmedico}" title="#{myBundle.CreateMedicoTitle_calificacionmedico}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateMedicoLabel_fichamedica}" for="fichamedica" />
+                            <p:inputText id="fichamedica" value="#{medicoController.selected.fichamedica}" title="#{myBundle.CreateMedicoTitle_fichamedica}" size="200" maxlength="200"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateMedicoLabel_idmedico}" for="idmedico" />
+                            <p:inputText id="idmedico" value="#{medicoController.selected.idmedico}" title="#{myBundle.CreateMedicoTitle_idmedico}" required="true" requiredMessage="#{myBundle.CreateMedicoRequiredMessage_idmedico}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                    <p:commandButton actionListener="#{medicoController.saveNew}" value="#{myBundle.Save}" update="display,:MedicoListPage:MedicoListForm:datalist,:growl" action="#{mobilePageController.navigateWithHistory('pm:MedicoListPage')}"/>
+
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

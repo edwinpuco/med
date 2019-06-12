@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="CitaListForm">
+
+        <p:panel header="#{myBundle.ListCitaTitle}">
+            <p:contextMenu id="CitaDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{myBundle.Create}" onclick="document.getElementById('CitaListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('CitaListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('CitaListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('CitaListForm:deleteButton').click();" icon="ui-icon-trash"/>
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{citaController.items}"
+                         lazy="false"
+                         rowKey="#{item.idcita}"
+                         var="item"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{citaController.selected}"
+                         filteredValue="#{citaController.filteredItems}">
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{citaController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.idcita}"  <<< Remove this line
+                -->
+
+
+                <p:ajax event="rowSelect"   update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:CitaDataTableContextMenu"/>
+                <p:ajax event="rowUnselect" update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:CitaDataTableContextMenu"/>
+                <p:ajax event="contextMenu" update="@form:createButton @form:viewButton @form:editButton @form:deleteButton"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('CitaListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.idcita}" filterBy="#{item.idcita}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_idcita}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idcita}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.fechagenerada}" filterBy="#{item.fechagenerada}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_fechagenerada}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechagenerada}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column sortBy="#{item.fechacita}" filterBy="#{item.fechacita}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_fechacita}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechacita}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column sortBy="#{item.horacita}" filterBy="#{item.horacita}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_horacita}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.horacita}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column sortBy="#{item.estadocita}" filterBy="#{item.estadocita}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_estadocita}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.estadocita}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.calificacioncita}" filterBy="#{item.calificacioncita}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCitaTitle_calificacioncita}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.calificacioncita}"/>
+                </p:column>
+
+                <ui:remove>
+                    <p:column sortBy="#{item.confirmacioncita}" filterBy="#{item.confirmacioncita}">
+                        <f:facet name="header">
+                            <h:outputText value="#{myBundle.ListCitaTitle_confirmacioncita}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.confirmacioncita}"/>
+                    </p:column>
+                </ui:remove>
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{citaController.prepareCreate}" update=":CitaCreateForm" oncomplete="PF('CitaCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":CitaViewForm" oncomplete="PF('CitaViewDialog').show()" disabled="#{empty citaController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":CitaEditForm" oncomplete="PF('CitaEditDialog').show()" disabled="#{empty citaController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{citaController.delete}" update=":growl,datalist" disabled="#{empty citaController.selected}">
+                <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/WEB-INF/include/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

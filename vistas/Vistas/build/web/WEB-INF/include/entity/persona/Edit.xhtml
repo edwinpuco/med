@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditPersonaTitle}" closeOnEscape="true">
+
+            <h:form id="PersonaEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{personaController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditPersonaLabel_idpersona}" for="idpersona" />
+                        <h:outputText id="idpersona" value="#{personaController.selected.idpersona}" />
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_primernombre}" for="primernombre" />
+                        <p:inputText id="primernombre" value="#{personaController.selected.primernombre}" title="#{myBundle.EditPersonaTitle_primernombre}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_segundonombre}" for="segundonombre" />
+                        <p:inputText id="segundonombre" value="#{personaController.selected.segundonombre}" title="#{myBundle.EditPersonaTitle_segundonombre}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_primerapellido}" for="primerapellido" />
+                        <p:inputText id="primerapellido" value="#{personaController.selected.primerapellido}" title="#{myBundle.EditPersonaTitle_primerapellido}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_segundoapellido}" for="segundoapellido" />
+                        <p:inputText id="segundoapellido" value="#{personaController.selected.segundoapellido}" title="#{myBundle.EditPersonaTitle_segundoapellido}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{personaController.selected.celular}" title="#{myBundle.EditPersonaTitle_celular}" size="10" maxlength="10"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{personaController.selected.clave}" title="#{myBundle.EditPersonaTitle_clave}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{personaController.selected.correo}" title="#{myBundle.EditPersonaTitle_correo}" size="50" maxlength="50"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personaController.save}" value="#{myBundle.Save}" update="display,:PersonaListForm:datalist,:PersonaListForm:PersonaDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('PersonaEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('PersonaEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

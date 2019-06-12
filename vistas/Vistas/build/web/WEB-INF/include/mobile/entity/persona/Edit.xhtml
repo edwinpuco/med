@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="PersonaEditPage" lazy="true">
+        <pm:header title="#{myBundle.EditPersonaTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:PersonaListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="PersonaEditForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{personaController.selected != null}">
+
+                        <pm:field>
+                            <h:outputLabel value="#{myBundle.EditPersonaLabel_idpersona}" for="idpersona" />
+                            <h:outputText id="idpersona" value="#{personaController.selected.idpersona}" />
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_primernombre}" for="primernombre" />
+                            <p:inputText id="primernombre" value="#{personaController.selected.primernombre}" title="#{myBundle.EditPersonaTitle_primernombre}" size="25" maxlength="25"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_segundonombre}" for="segundonombre" />
+                            <p:inputText id="segundonombre" value="#{personaController.selected.segundonombre}" title="#{myBundle.EditPersonaTitle_segundonombre}" size="25" maxlength="25"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_primerapellido}" for="primerapellido" />
+                            <p:inputText id="primerapellido" value="#{personaController.selected.primerapellido}" title="#{myBundle.EditPersonaTitle_primerapellido}" size="25" maxlength="25"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_segundoapellido}" for="segundoapellido" />
+                            <p:inputText id="segundoapellido" value="#{personaController.selected.segundoapellido}" title="#{myBundle.EditPersonaTitle_segundoapellido}" size="25" maxlength="25"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_celular}" for="celular" />
+                            <p:inputText id="celular" value="#{personaController.selected.celular}" title="#{myBundle.EditPersonaTitle_celular}" size="10" maxlength="10"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_clave}" for="clave" />
+                            <p:inputText id="clave" value="#{personaController.selected.clave}" title="#{myBundle.EditPersonaTitle_clave}" size="25" maxlength="25"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.EditPersonaLabel_correo}" for="correo" />
+                            <p:inputText id="correo" value="#{personaController.selected.correo}" title="#{myBundle.EditPersonaTitle_correo}" size="50" maxlength="50"/>
+                        </pm:field>
+                    </p:outputPanel>
+                    <p:commandButton actionListener="#{personaController.save}" value="#{myBundle.Save}" update="#{mobilePageController.updatableWidgets(component,'display,:PersonaListPage:PersonaListForm:datalist,:growl')}" action="#{mobilePageController.navigateWithHistory('pm:PersonaListPage')}"/>
+
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

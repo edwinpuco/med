@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="CitaViewPage" lazy="true">
+        <pm:header title="#{myBundle.ViewCitaTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:CitaListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="CitaViewForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{citaController.selected != null}">
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_idcita}"/>
+                            <h:outputText value="#{citaController.selected.idcita}" title="#{myBundle.ViewCitaTitle_idcita}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_fechagenerada}"/>
+                            <h:outputText value="#{citaController.selected.fechagenerada}" title="#{myBundle.ViewCitaTitle_fechagenerada}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_fechacita}"/>
+                            <h:outputText value="#{citaController.selected.fechacita}" title="#{myBundle.ViewCitaTitle_fechacita}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_horacita}"/>
+                            <h:outputText value="#{citaController.selected.horacita}" title="#{myBundle.ViewCitaTitle_horacita}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_estadocita}"/>
+                            <h:outputText value="#{citaController.selected.estadocita}" title="#{myBundle.ViewCitaTitle_estadocita}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_calificacioncita}"/>
+                            <h:outputText value="#{citaController.selected.calificacioncita}" title="#{myBundle.ViewCitaTitle_calificacioncita}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewCitaLabel_confirmacioncita}"/>
+                            <h:outputText value="#{citaController.selected.confirmacioncita}" title="#{myBundle.ViewCitaTitle_confirmacioncita}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

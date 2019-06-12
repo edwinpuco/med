@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MedicoCreateDlg" widgetVar="MedicoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateMedicoTitle}" closeOnEscape="true">
+
+            <h:form id="MedicoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{medicoController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateMedicoLabel_tiempoatencion}" for="tiempoatencion" />
+                        <p:inputText id="tiempoatencion" value="#{medicoController.selected.tiempoatencion}" title="#{myBundle.CreateMedicoTitle_tiempoatencion}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateMedicoLabel_calificacionmedico}" for="calificacionmedico" />
+                        <p:inputText id="calificacionmedico" value="#{medicoController.selected.calificacionmedico}" title="#{myBundle.CreateMedicoTitle_calificacionmedico}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateMedicoLabel_fichamedica}" for="fichamedica" />
+                        <p:inputText id="fichamedica" value="#{medicoController.selected.fichamedica}" title="#{myBundle.CreateMedicoTitle_fichamedica}" size="200" maxlength="200"/>
+
+                        <p:outputLabel value="#{myBundle.CreateMedicoLabel_idmedico}" for="idmedico" />
+                        <p:inputText id="idmedico" value="#{medicoController.selected.idmedico}" title="#{myBundle.CreateMedicoTitle_idmedico}" required="true" requiredMessage="#{myBundle.CreateMedicoRequiredMessage_idmedico}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{medicoController.saveNew}" value="#{myBundle.Save}" update="display,:MedicoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('MedicoCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('MedicoCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

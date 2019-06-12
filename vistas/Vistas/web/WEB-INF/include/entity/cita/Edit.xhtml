@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="CitaEditDlg" widgetVar="CitaEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditCitaTitle}" closeOnEscape="true">
+
+            <h:form id="CitaEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{citaController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditCitaLabel_idcita}" for="idcita" />
+                        <h:outputText id="idcita" value="#{citaController.selected.idcita}" />
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_fechagenerada}" for="fechagenerada" />
+                        <p:calendar id="fechagenerada" pattern="MM/dd/yyyy HH:mm:ss" value="#{citaController.selected.fechagenerada}" title="#{myBundle.EditCitaTitle_fechagenerada}"  showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_fechacita}" for="fechacita" />
+                        <p:calendar id="fechacita" pattern="MM/dd/yyyy" value="#{citaController.selected.fechacita}" title="#{myBundle.EditCitaTitle_fechacita}"  showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_horacita}" for="horacita" />
+                        <p:calendar id="horacita" pattern="HH:mm:ss" value="#{citaController.selected.horacita}" title="#{myBundle.EditCitaTitle_horacita}"  showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_estadocita}" for="estadocita" />
+                        <p:inputText id="estadocita" value="#{citaController.selected.estadocita}" title="#{myBundle.EditCitaTitle_estadocita}"/>
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_calificacioncita}" for="calificacioncita" />
+                        <p:inputText id="calificacioncita" value="#{citaController.selected.calificacioncita}" title="#{myBundle.EditCitaTitle_calificacioncita}"/>
+
+                        <p:outputLabel value="#{myBundle.EditCitaLabel_confirmacioncita}" for="confirmacioncita" />
+                        <p:inputText id="confirmacioncita" value="#{citaController.selected.confirmacioncita}" title="#{myBundle.EditCitaTitle_confirmacioncita}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citaController.save}" value="#{myBundle.Save}" update="display,:CitaListForm:datalist,:CitaListForm:CitaDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CitaEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('CitaEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

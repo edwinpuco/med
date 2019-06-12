@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="AtencionViewPage" lazy="true">
+        <pm:header title="#{myBundle.ViewAtencionTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:AtencionListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="AtencionViewForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{atencionController.selected != null}">
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewAtencionLabel_atencionPK_idhorario}"/>
+                            <h:outputText value="#{atencionController.selected.atencionPK.idhorario}" title="#{myBundle.ViewAtencionTitle_atencionPK_idhorario}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewAtencionLabel_atencionPK_idestablecimiento}"/>
+                            <h:outputText value="#{atencionController.selected.atencionPK.idestablecimiento}" title="#{myBundle.ViewAtencionTitle_atencionPK_idestablecimiento}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewAtencionLabel_atencionPK_idmedico}"/>
+                            <h:outputText value="#{atencionController.selected.atencionPK.idmedico}" title="#{myBundle.ViewAtencionTitle_atencionPK_idmedico}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewAtencionLabel_precio}"/>
+                            <h:outputText value="#{atencionController.selected.precio}" title="#{myBundle.ViewAtencionTitle_precio}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewAtencionLabel_numeroconsultorio}"/>
+                            <h:outputText value="#{atencionController.selected.numeroconsultorio}" title="#{myBundle.ViewAtencionTitle_numeroconsultorio}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

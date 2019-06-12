@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AtencionCreateDlg" widgetVar="AtencionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateAtencionTitle}" closeOnEscape="true">
+
+            <h:form id="AtencionCreateForm">
+
+                <h:panelGroup id="display" rendered="#{atencionController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateAtencionLabel_atencionPK_idhorario}" for="atencionPK_idhorario" />
+                        <p:inputText id="atencionPK_idhorario" value="#{atencionController.selected.atencionPK.idhorario}" title="#{myBundle.CreateAtencionTitle_atencionPK_idhorario}" required="true" requiredMessage="#{myBundle.CreateAtencionRequiredMessage_atencionPK_idhorario}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateAtencionLabel_atencionPK_idestablecimiento}" for="atencionPK_idestablecimiento" />
+                        <p:inputText id="atencionPK_idestablecimiento" value="#{atencionController.selected.atencionPK.idestablecimiento}" title="#{myBundle.CreateAtencionTitle_atencionPK_idestablecimiento}" required="true" requiredMessage="#{myBundle.CreateAtencionRequiredMessage_atencionPK_idestablecimiento}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateAtencionLabel_atencionPK_idmedico}" for="atencionPK_idmedico" />
+                        <p:inputText id="atencionPK_idmedico" value="#{atencionController.selected.atencionPK.idmedico}" title="#{myBundle.CreateAtencionTitle_atencionPK_idmedico}" required="true" requiredMessage="#{myBundle.CreateAtencionRequiredMessage_atencionPK_idmedico}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateAtencionLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{atencionController.selected.precio}" title="#{myBundle.CreateAtencionTitle_precio}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateAtencionLabel_numeroconsultorio}" for="numeroconsultorio" />
+                        <p:inputText id="numeroconsultorio" value="#{atencionController.selected.numeroconsultorio}" title="#{myBundle.CreateAtencionTitle_numeroconsultorio}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{atencionController.saveNew}" value="#{myBundle.Save}" update="display,:AtencionListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('AtencionCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('AtencionCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

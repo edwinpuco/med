@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="MedicoViewPage" lazy="true">
+        <pm:header title="#{myBundle.ViewMedicoTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{myBundle.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:MedicoListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="MedicoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{medicoController.selected != null}">
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewMedicoLabel_tiempoatencion}"/>
+                            <h:outputText value="#{medicoController.selected.tiempoatencion}" title="#{myBundle.ViewMedicoTitle_tiempoatencion}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewMedicoLabel_calificacionmedico}"/>
+                            <h:outputText value="#{medicoController.selected.calificacionmedico}" title="#{myBundle.ViewMedicoTitle_calificacionmedico}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewMedicoLabel_fichamedica}"/>
+                            <h:outputText value="#{medicoController.selected.fichamedica}" title="#{myBundle.ViewMedicoTitle_fichamedica}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewMedicoLabel_idmedico}"/>
+                            <h:outputText value="#{medicoController.selected.idmedico}" title="#{myBundle.ViewMedicoTitle_idmedico}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

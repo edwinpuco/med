@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form id="menuForm">
+            <p:menubar>
+                <p:menuitem value="#{myBundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                <p:submenu label="#{myBundle.Maintenance}">
+                    <p:menuitem value="#{myBundle.AtencionHeading}..." outcome="/app/atencion/index" />
+                    <p:menuitem value="#{myBundle.CitaHeading}..." outcome="/app/cita/index" />
+                    <p:menuitem value="#{myBundle.DireccionHeading}..." outcome="/app/direccion/index" />
+                    <p:menuitem value="#{myBundle.EspecialidadHeading}..." outcome="/app/especialidad/index" />
+                    <p:menuitem value="#{myBundle.EstablecimientoHeading}..." outcome="/app/establecimiento/index" />
+                    <p:menuitem value="#{myBundle.HorarioHeading}..." outcome="/app/horario/index" />
+                    <p:menuitem value="#{myBundle.MedicoHeading}..." outcome="/app/medico/index" />
+                    <p:menuitem value="#{myBundle.PacienteHeading}..." outcome="/app/paciente/index" />
+                    <p:menuitem value="#{myBundle.PersonaHeading}..." outcome="/app/persona/index" />
+                    <p:menuitem value="#{myBundle.RolHeading}..." outcome="/app/rol/index" />
+                    <p:menuitem value="#{myBundle.TipoestablecimientoHeading}..." outcome="/app/tipoestablecimiento/index" />
+                </p:submenu>
+                <p:menuitem value="#{myBundle.Mobile}" outcome="/mobile/index" icon="ui-icon-signal"/>
+            </p:menubar>
+        </h:form>
+    </ui:composition>
+
+</html>
