@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BIENVENIDA</title>
+  </head>
+  <body>
+    <!--header class="site-header">
+      <div class="hero">
+        <div class="contenido-header">
+          <nav class="redes-sociales">
+            <a href="#"> <i class="fab fa-facebook"></i>  </a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </nav>
+          <div class="informacion-evento">
+            <div class="clearfix">
+              <p class="fecha"><i class="far fa-calendar-alt"></i>10-12-Dic</p>
+              <p class="ciudad"><i class="fas fa-map-marker"></i>Quito</p>
+            </div>
+
+            <h1 class="nombre-sitio">Citas Médicas</h1>
+            <p class="slogan">Citas <span>slogan</span> </p>
+          </div>
+        </div>
+      </div>
+    </header-->
+
+    <!--div class="barra">
+      <div class="contenedor clearfix">
+        <div class="logo">
+          <a href="index.php">
+            <img src="img/logo.svg" alt="logo gdlwebcamp">
+          </a>
+        </div>
+
+        <div class="menu-movil">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="navegacion-principal clearfix">
+          <a href="conferencia.php">Conferencia</a>
+          <a href="calendario.php">Calendario</a>
+          <a href="invitados.php">Invitados</a>
+          <a href="registro.php">Reservaciones</a>
+        </nav>
+      </div>
+    </div-->
+
+    <section class="seccion contenedor">
+      <h2>Bienvenido al sistema</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <form class="" action="medico.html" method="post">
+        <div class="login">
+          <div class="campo">
+            <label for="rol">Tipo de usuario:</label>
+            <select name="rol">
+              <option value="default" selected>Seleccione usuario</option>
+              <option value="administrador">Administrador</option>
+              <option value="medico">Médico</option>
+              <option value="paciente">Paciente</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" placeholder="Tu coreo">
+          </div>
+          <div class="campo">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Tu contraseña">
+          </div>
+        </div>
+        <input type="button" id="login" class="button" value="Ingresar">
+
+      </form>
+      <br><a href="menu.html">Administrador</a><br>
+      <a href="medico/medico.html">Médico</a><br>
+      <a href="paciente/paciente.html">Paciente</a>
+    </section><!-- .seccion -->
+
+
+    <!--footer class="site-footer">
+      <div class="contenedor clearfix">
+        <div class="footer-informacion">
+          <h3>Sobre <span>gdlwebcamp</span> </h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="ultimos-tweets">
+          <h3>Últimos <span>tweets</span> </h3>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.12';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-page" data-href="https://www.facebook.com/lacentralec/?hc_ref=ARS9ABkMkzBG_N96_3BCb7wcQnaJuhm1wEhoAFZrh9SsstwWXAs211G-_z4oH-nxngk&amp;fref=nf" data-tabs="timeline" data-width="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lacentralec/?hc_ref=ARS9ABkMkzBG_N96_3BCb7wcQnaJuhm1wEhoAFZrh9SsstwWXAs211G-_z4oH-nxngk&amp;fref=nf" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lacentralec/?hc_ref=ARS9ABkMkzBG_N96_3BCb7wcQnaJuhm1wEhoAFZrh9SsstwWXAs211G-_z4oH-nxngk&amp;fref=nf">Universidad Central Del Ecuador</a></blockquote></div>
+          </ul>
+        </div>
+        <div class="menu">
+          <h3>Redes <span>sociales</span> </h3>
+          <nav class="redes-sociales">
+            <a href="#"> <i class="fab fa-facebook"></i>  </a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </nav>
+        </div>
+      </div>
+      <p class="copyright">Todos los derechos Reservados GDLWEBCAMP 2016.</p>
+
+
+
+
+    </footer-->
+  </body>
+</html>
