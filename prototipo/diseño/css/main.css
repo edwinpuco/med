@@ -97,6 +97,243 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html{
+  box-sizing: border-box;
+}
+*,*:before,*:after{
+  box-sizing: inherit;
+}
+body{
+  background-color: #ffffff;
+  /*font-family: ;*/
+}
+/* GLobales */
+.contenedor{
+  width: 98%;
+  margin: 0 auto;
+}
+@media only screen and (min-width:480px){
+  .contenedor{
+    width: 95%;
+  }
+}
+@media only screen and (min-width:768px){
+  .contenedor{
+    width: 90%;
+  }
+}
+@media only screen and (min-width:992px){
+  .contenedor{
+    width: 90%;
+    max-width: 1100px;
+  }
+}
+.seccion{
+  padding: 30px 0;
+}
+.seccion p{
+  font-size: 1.2em;
+  text-align: center;
+}
+h2{
+  /*font-family: ;*/
+  font-size: 2.4em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* header */
+div.hero{
+  background-image: url(../img/imgen1.jpg);
+  height: 10vh;
+  background-position:top center;
+  background-size:cover;
+}
+div.contenido-header{
+  padding-top:40px;
+}
+nav.redes-sociales{
+  text-align: center;
+}
+nav.redes-sociales a{
+  color: #000000;
+  font-size: 2em;
+  margin-right: 20px;
+}
+nav.redes-sociales a:last-child{
+  margin-right: 0;
+}
+
+/* barra */
+div.barra{
+  background-color: #ffffff;
+  padding: 20px 0;
+}
+div.logo{
+  width: 80%;
+  float: left;
+}
+div.logo img{
+  width: 100%;
+}
+@media only screen and (min-width:768px){
+  div.logo{
+    width: 33%;
+  }
+}
+/* navegacion principal */
+nav.navegacion-principal{
+  display: none;
+}
+nav.navegacion-principal a{
+  /*font-family: ;*/
+  color: #57B8FF;
+  font-size: 1em;
+  /*text-transform: uppercase;*/
+  text-decoration: none;
+  transition: all .6s ease;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+nav.navegacion-principal a:hover{
+  background-color: #FFFFFF;
+}
+nav.navegacion-principal a:last-child{
+  border: 2px solid #57B8FF;
+}
+nav.navegacion-principal a:nth-last-child(2){
+  border: 2px solid #57B8FF;
+}
+nav.navegacion-principal a:last-child:hover{
+  color: #FE5159;
+  border-color: #FE5159;
+}
+nav.navegacion-principal a:nth-last-child(2):hover{
+  color: #FE5159;
+  border-color: #FE5159;
+}
+@media only screen and (min-width:768px){
+  nav.navegacion-principal{
+    width: 67%;
+    float: right;
+    text-align: right;
+    display: block;
+  }
+  nav.navegacion-principal a{
+    padding: 10px 10px;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    margin: 0 10px 0 0;
+  }
+}
+/* menú movil*/
+div.menu-movil{
+  width: 60px;
+  display: block;
+  float: right;
+  text-align: right;
+  margin-top: 12px;
+}
+div.menu-movil:hover{
+  cursor: pointer;
+}
+@media only screen and (min-width:768px){
+  div.menu-movil{
+    display: none;
+  }
+}
+div.menu-movil span{
+  height: 8px;
+  margin-bottom: 6px;
+  background-color: #57B8FF;
+  display: block;
+}
+/* divisiones*/
+div.divisiones{
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+}
+div.division{
+  padding: 48px;
+}
+div.division img{
+  display: block;
+  margin: auto;
+}
+@media only screen and (min-width:768px){
+  div.division{
+    float: left;
+    width: 33.3%;
+  }
+}
+/* descripciones */
+div.descripciones,
+div.descripcionesD{
+  padding: 20px;
+}
+div.imagen img{
+  display: block;
+  margin: auto;
+}
+div.descripcion p{
+  text-align: center;
+  float: right;
+}
+@media only screen and (min-width:768px){
+  div.descripciones .imagen{
+    float: left;
+    width: 50%;
+  }
+  div.descripcionesD .imagen{
+    float: right;
+    width: 50%;
+  }
+}
+@media only screen and (min-width:768px){
+  div.descripciones .descripcion{
+    float: right;
+    width: 50%;
+  }
+  div.descripcionesD .descripcion{
+    float: left;
+    width: 50%;
+  }
+}
+/* footer*/
+footer{
+  background-color: #2176AE;
+  padding-top:40px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+}
+footer.contenedor > div{
+  color: #ffffff;
+  padding: 0px 5px;
+  font-size: 12px;
+  text-align: justify;
+}
+@media only screen and (min-width:768px){
+  div.final .imagen{
+    float: left;
+    width: 30%;
+  }
+  div.final .resumen{
+    float: right;
+    width: 70%;
+  }
+}
+@media only screen and (min-width:768px){
+  footer .contenedor .resumen > div{
+    width: 25%;
+    float: left;
+  }
+}
+
 
 /* ==========================================================================
    Helper classes
@@ -263,4 +500,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
