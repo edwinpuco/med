@@ -278,10 +278,11 @@ div.division img{
 }
 /* descripciones */
 
-section.seccion .descripciones{
+section.a{
   background-color: #FE5159;
+  color: #ffffff;
 }
-section.seccion .descripcionesD{
+section.b{
   background-color: #57B8FF;
 }
 div.descripciones,
@@ -294,7 +295,28 @@ div.imagen img{
 }
 div.descripcion p{
   text-align: center;
-  float: right;
+  float: left;
+}
+div.descripcion i{
+  padding: 4px;
+  margin-right: 10px;
+  font-size: 2.5rem;
+  margin:2 auto;
+  width: 62px;
+  height: 62px;
+  border: 3px solid #555;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  color: #000000;
+}
+
+div.descripcion p.titulo{
+  font-size: 2.4em;
+  color: #FE5159;
+}
+div.descripcion p.texto{
+  text-align: left;
 }
 @media only screen and (min-width:768px){
   div.descripciones .imagen{
@@ -377,9 +399,6 @@ div.icons img{
     text-align: center;
   }
 }
-div.icons .circulo{
-
-}
 div.icons p{
   margin: 0 auto;
   width: 80px;
@@ -388,6 +407,36 @@ div.icons p{
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
+}
+div.blanco{
+  padding: 10px;
+}
+div.blanco p{
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #ffffff;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+div.blanco p i{
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  text-align: center;
+}
+@media only screen and (min-width:768px){
+  div.blanco{
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+}
+
+/*citas*/
+section.contenedor-citas{
+  background-color: #FE5159;
 }
 
 
