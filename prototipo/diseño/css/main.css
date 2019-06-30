@@ -178,6 +178,11 @@ div.contenido-header{
 nav.redes-sociales{
   text-align: center;
 }
+@media only screen and (min-width:768px){
+  div.contenido-header{
+    padding-top: 10px;
+  }
+}
 nav.redes-sociales a{
   color: #000000;
   /*font-size: 2em;*/
@@ -190,13 +195,21 @@ nav.redes-sociales a:last-child{
 /* barra */
 div.barra{
   background-color: #ffffff;
-  padding: 20px 0;
+  padding: 20px;
+}
+.fixed{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 div.logo{
   width: 75%;
   float: left;
 }
 div.logo img{
+  margin-top: 8px;
   width: 20%;
 }
 @media only screen and (min-width:768px){
@@ -207,6 +220,7 @@ div.logo img{
 /* navegacion principal */
 nav.navegacion-principal{
   display: none;
+  width: 100%;
 }
 nav.navegacion-principal a{
   /*font-family: ;*/
@@ -218,8 +232,9 @@ nav.navegacion-principal a{
   width: 100%;
   display: block;
   text-align: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  clear: both;
 }
 nav.navegacion-principal a:hover{
   background-color: #FFFFFF;
@@ -279,7 +294,7 @@ div.menu-movil:hover{
 div.menu-movil span{
   height: 8px;
   margin-bottom: 6px;
-  background-color: #57B8FF;
+  background-color: #17BEBB;
   display: block;
 }
 /* divisiones*/
@@ -381,7 +396,6 @@ footer.site-footer{
 footer.site-footer .final > div{
   color: #ffffff;
   padding: 0px 5px;
-
   text-align: justify;
 }
 footer.site-footer .final .resumen > div > p{
@@ -417,7 +431,7 @@ div.icons{
   padding: 10px;
 }
 div.icons p i{
-  color: #FE5159;
+  color: #17BEBB;
   font-size: 2.5rem;
   margin-top: 20px;
   text-align: center;
@@ -568,7 +582,7 @@ div.campo a{
 }
 /* confirmaciones*/
 .titulo{
-  text-align: center;  
+  text-align: center;
 }
 
 
