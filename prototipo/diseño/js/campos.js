@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   document.addEventListener('DOMContentLoaded', function(){
-    console.log("listo");
+    //console.log("listo");
     var nombreUno=document.getElementById('nombre1');
     var nombreDos=document.getElementById('nombre2');
     var apellidoUno=document.getElementById('apellido1');
@@ -12,6 +12,9 @@
     var pass=document.getElementById('password');
     var repass=document.getElementById('confirmacion');
     var errorDiv=document.getElementById('error');
+    if(nombreUno=document.getElementById('nombre1')){
+
+
     nombreUno.addEventListener('blur',validarCampos);
     nombreDos.addEventListener('blur',validarCampos);
     apellidoUno.addEventListener('blur',validarCampos);
@@ -39,6 +42,7 @@
         errorDiv.style.display='none';
         this.style.border='1px solid #cccccc';
       }
+    }
     }
   });
 })();
