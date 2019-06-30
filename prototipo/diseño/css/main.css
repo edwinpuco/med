@@ -560,6 +560,12 @@ div.campo a{
   display: block;
   padding-top: 20px;
 }
+#error{
+  clear: both;
+  text-align: center;
+  padding: 20px;
+  display: none;
+}
 
 
 
