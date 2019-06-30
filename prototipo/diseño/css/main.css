@@ -566,7 +566,10 @@ div.campo a{
   padding: 20px;
   display: none;
 }
-
+/* confirmaciones*/
+.titulo{
+  text-align: center;  
+}
 
 
 
