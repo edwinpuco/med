@@ -68,9 +68,28 @@
       </div>
 
       <div class="descripcion">
-        <h1>Iniciar sesi&oacute;n</h1>
+        <h1>Registrase</h1>
         <form class="formulario" id="formulario" action="index.html" method="post">
           <div class="formulario caja clearfix" id="datos">
+            <div class="campo">
+              <input type="text" class="datos" name="nombre1" id="nombre1" placeholder="Primer nombre">
+            </div>
+            <div class="campo">
+              <input type="text" class="datos" name="nombre2" id="nombre1" placeholder="Segundo nombre">
+            </div>
+            <div class="campo">
+              <input type="text" class="datos" name="apellido1" id="apellido1" placeholder="Primer apellido">
+            </div>
+            <div class="campo">
+              <input type="text" class="datos" name="apellido2" id="apellido2" placeholder="Segundo apellido">
+            </div>
+            <div class="campo">
+              <label for="fechaNacimiento">Fecha de nacimiento (dd/mm/aaaa)</label>
+              <input type="date" class="datos" name="fechaNacimiento" id="fechaNacimiento">
+            </div>
+            <div class="campo">
+              <input type="tel" class="datos" name="telefono" id="telefono" placeholder="Tel&eacute;fono">
+            </div>
             <div class="campo">
               <input type="email" class="datos" name="correo" id="correo" placeholder="Correo">
             </div>
@@ -78,23 +97,22 @@
               <input type="password" class="datos" name="password" id="password" placeholder="Contraseña">
             </div>
             <div class="campo">
+              <input type="password" class="datos" name="confirmacion" id="confirmacion" placeholder="Repite tu contraseña">
+            </div>
+            <div class="campo">
               <input type="button" id="registrar" class="button" value="Registrarse">
-            </div>
-            <div class="campo">
-              <a href="#">Olvid&eacute; mi contraseña</a>
-            </div>
-            <div class="campo">
-              <a href="registro.html">Crear cuenta nueva</a>
             </div>
             <div class="campo">
               <a href="#">términos y condiciones / políticas de privacidad</a>
             </div>
+
             <div id="error"></div>
           </div>
         </form>
       </div>
     </div>
   </section>
+
 
 
   <footer class="site-footer">

@@ -104,7 +104,7 @@ html{
   box-sizing: inherit;
 }
 body{
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   font-family: 'Raleway', sans-serif;
   font-size: 100%;
 }
@@ -138,12 +138,14 @@ body{
 }
 h1{
   font-size: 2.8em;
+  color: #2F404E;
 }
 h2{
   /*font-family: ;*/
   font-size: 1.96em;
   text-transform: uppercase;
   text-align: center;
+  color: #17BEBB;
 }
 h3{
   font-size: 0.84em;
@@ -151,9 +153,15 @@ h3{
 }
 p{
   font-size: 1.4em;
+  color: #2F404E;
 }
 a{
   font-size: 0.84em;
+  text-decoration: none;
+  color: #17BEBB;
+}
+button{
+  font-size: 1.4em;
 }
 
 
@@ -299,6 +307,10 @@ section.a,
 section.b{
   background-color: #17BEBB;
   color: #ffffff;
+}
+section.c,{
+  background-color: #FFFFFF;
+
 }
 /*section.b{
   background-color: #00A0A4;
@@ -460,6 +472,96 @@ div.blanco p i{
 section.contenedor-citas{
   background-color: #FE5159;
 }
+.button{
+  background-color: #17BEBB;
+  padding: 10px 70px;
+  color: #ffffff;
+  margin: 10px auto 10px auto;
+  display: block;
+  transition: all .3s ease;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  border: 2px solid #17BEBB;
+}
+.button:hover{
+  background-color: #2F404E;
+  border: 2px solid #2F404E;
+  cursor: pointer;
+}
+.float-center{
+  text-align: center;
+  float: none;
+}
+.datos-login > div{
+  text-align: center;
+  /*width: 100%;*/
+}
+/* login */
+form.login h2{
+  text-align: left;
+  margin: 20px 0 0 0;
+}
+form.login input.holder{
+  text-align: left;
+  clear: both;
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px 0px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  border: 1px solid #EAEAEA;
+}
+/* formulario */
+div.descripcion h1{
+  text-align: center;
+  margin: 20px 0 0 0;
+}
+form.formulario label{
+  text-align: left;
+  color: #EAEAEA;
+  padding: 5px 0px;
+  margin: 0px 5px;
+}
+form.formulario input.datos{
+  text-align: left;
+  width: 100%;
+  margin: 5px 0px;
+  padding: 10px 15px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  border: 1px solid #EAEAEA;
+  color: #2F404E;
+}
+.datos::placeholder{
+  color: #EAEAEA;
+}
+.datos::-webkit-input-placeholder{
+  color: #EAEAEA;
+}
+.datos::-moz-placeholder{
+  color: #EAEAEA;
+}
+.datos:-ms-input-placeholder{
+  color: #EAEAEA;
+}
+.datos:-moz-placeholder{
+  color: #EAEAEA;
+}
+div.caja{
+  padding: 10px;
+  margin: 10px;
+}
+div.campo a{
+  /*padding: 20px;*/
+  text-align: center;
+  display: block;
+  padding-top: 20px;
+}
+
+
 
 
 /* ==========================================================================
