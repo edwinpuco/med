@@ -1,4 +1,7 @@
 $(function() {
+  
+
+
   var windowHeight=$(window).height();
   var barraAltura=$('.barra').innerHeight();
   //console.log(windowHeight);
@@ -20,4 +23,5 @@ $(function() {
   $('.menu-movil').on('click',function(){
     $('.navegacion-principal').slideToggle();
   });
+
 });

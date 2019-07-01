@@ -538,7 +538,8 @@ form.formulario label{
   padding: 5px 0px;
   margin: 0px 5px;
 }
-form.formulario input.datos{
+form.formulario input.datos,
+input.datos{
   text-align: left;
   width: 100%;
   margin: 5px 0px;
@@ -583,6 +584,16 @@ div.campo a{
 /* confirmaciones*/
 .titulo{
   text-align: center;
+}
+/*mapa*/
+div.mapa{
+  height:420px;
+}
+.buscar{
+  padding: 10px 70px!important;
+  color: #ffffff;
+  margin: 10px auto 10px auto!important;
+  display: block;
 }
 
 

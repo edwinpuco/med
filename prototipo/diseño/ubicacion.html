@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
   <link rel="stylesheet" href="css/main.css">
 
@@ -61,16 +62,18 @@
   </div>
 
   <section class="seccion c contenedor">
-    <div class="imagen descripciones contenedor clearfix caja formulario">
-      <h1 class="titulo">Cita rechazada!</h1>
-      <img src="" alt="imagen">
-      <p>Lorem Ipsum is simply dummy te</p>
+    <div class="imagen descripciones contenedor clearfix caja ">
+      <h1 class="titulo">Compartir ubicaci&oacute;n</h1>
+      <p>Duis hendrerit dolor massa, eget placerat risus dictum at.</p>
+      <div class="mapa conte clearfix" id="mapa"></div>
+      <form class="formulario" id="formulario" action="index.html" method="post">
       <div class="campo">
-        <input type="button" id="registrar" class="button" value="Consultar otro horario">
+        <input type="search" id="registrar" class="datos buscar" placeholder="Encontrar ubicaci&oacute;n...">
       </div>
       <div class="campo">
-        <input type="button" id="registrar" class="button" value="Regresar al men&uacute; principal">
+        <input type="button" id="registrar" class="button" value="No en este momento">
       </div>
+    </form>
     </div>
   </section>
 
@@ -115,7 +118,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/campos.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
