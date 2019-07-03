@@ -209,20 +209,53 @@ div.barra{
 }
 @keyframes latidos {
     from { transform: none; }
-    50% { transform: scale(1.4); }
+    50% { transform: scale(1.30); }
     to { transform: none; }
 }
 .latido {
 	display: inline-block;
-	font-size: 150px;
-	text-shadow: 0 0 10px #222,1px 1px  0 #450505;
-	color: red;
-  animation: latidos .5s infinite;
+  animation: latidos 5s linear infinite;
 	/*animation: latidos .7s linear 6 alternate;*/
 	transform-origin: center;
   width: 20%;
-
-
+}
+@keyframes desvanecimiento {
+    /*0% {opacity: .1;}
+    10% {opacity: .3;}
+    20% {opacity: .5;}
+    30% {opacity: .7;}
+    40% {opacity: .9;}
+    50% {opacity: 1;}
+    60% {opacity: .9;}
+    70% {opacity: .7;}
+    80% {opacity: .5;}
+    90% {opacity: .3;}
+    100% {opacity: .1;}*/
+    0% { opacity: 0; }
+   25% {  opacity:0.25; }
+   50% {  opacity: 0.5; }
+   75% {  opacity: 1; }
+  100% {   opacity: 0; }
+}
+.desvanecer {
+	display: inline-block;
+  animation: desvanecimiento 7s linear infinite;
+	/*animation: latidos .7s linear 6 alternate;*/
+	transform-origin: center;
+  width: 20%;
+}
+@keyframes combinados {
+  0% { transform: none; opacity: 0; }
+ 25% { opacity:0.25; }
+ 50% { transform: scale( 1.30 ); opacity: 0.5; }
+ 75% { opacity: 1; }
+100% { opacity: 0; transform: none; }
+}
+.combinar {
+	display: inline-block;
+  animation: combinados 7s linear 3 alternate;
+	transform-origin: center;
+  width: 20%;
 }
 div.logo{
   width: 75%;
