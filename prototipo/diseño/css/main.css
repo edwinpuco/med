@@ -207,6 +207,23 @@ div.barra{
   left: 0;
   z-index: 2;
 }
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.4); }
+    to { transform: none; }
+}
+.latido {
+	display: inline-block;
+	font-size: 150px;
+	text-shadow: 0 0 10px #222,1px 1px  0 #450505;
+	color: red;
+  animation: latidos .5s infinite;
+	/*animation: latidos .7s linear 6 alternate;*/
+	transform-origin: center;
+  width: 20%;
+
+
+}
 div.logo{
   width: 75%;
   float: left;
