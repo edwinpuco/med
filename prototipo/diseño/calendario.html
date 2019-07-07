@@ -1,0 +1,209 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <style type="text/css">
+  /* Styling for the title (Month and Year) of the calendar */
+  div.title {
+      font: x-large Verdana, Arial, Helvetica, sans-serif;
+      text-align: center;
+      height: 40px;
+      background-color: #ffffff;
+      color: #fe5159;
+      }
+  /* Styling for the footer */
+  div.footer {
+      font: small Verdana, Arial, Helvetica, sans-serif;
+      text-align: center;
+      }
+  /* Styling for the overall table */
+  table {
+      font: 100% Verdana, Arial, Helvetica, sans-serif;
+      table-layout: fixed;
+      border-collapse: collapse;
+      width: 70%;
+      border-style: none;
+      margin: 0 auto;
+      }
+  /* Styling for the column headers (days of the week) */
+  th {
+      padding: 0 0.5em;
+      text-align: center;
+      /*background-color:gray;*/
+      color:#2F404E;
+      border-style: none;
+      text-align: center;
+      vertical-align: middle;
+      }
+  /* Styling for the individual cells (days) */
+  td  {
+    border-style: none;
+      font-size: medium;
+      padding: 20px;
+      margin: 15px;
+      height: 50px;
+
+      text-align: center;
+      vertical-align: middle;
+      }
+  /* Styling for the date numbers */
+  .date  {
+      font-size: large;
+      padding: 0.25em 0.25em;
+      text-align: left;
+      vertical-align: top;
+      }
+  /* Class for individual days (coming in future release) */
+  .sun {
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #fe5159;
+       }
+  /* Hide the month element (coming in future release) */
+  th.month {
+      visibility: hidden;
+      display:none;
+      }
+  .circulo {
+height: 5px;
+width: 5px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #fe5159;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <!--header class="site-header">
+    <div class="hero">
+      <div class="contenido-header">
+        <nav class="redes-sociales">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </nav>
+      </div>
+    </div>
+  </header-->
+
+  <div class="barra">
+    <div class="contenedor clearfix">
+      <div class="logo">
+        <img src="iconos/logo.svg" alt="logo">
+      </div>
+
+      <div class="menu-movil">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="navegacion-principal clearfix">
+        <a href="quienes-somos.html">Qui&eacute;nes somos</a>
+        <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+        <a href="#">Contactos</a>
+        <a href="login.html">Iniciar sesi&oacute;n</a>
+        <a href="registro.html">Registrarse</a>
+      </nav>
+
+    </div>
+  </div>
+
+
+  <section class="seccion contenedor">
+    <div class="contenedor clearfix ">
+      <h1>Citas M&eacute;dicas</h1>
+      <h2>Calendario</h2>
+    <div class="tabla">
+      <div class="title">Enero 2019</div>
+      <table border="1">
+      <tr><th>Dom</th><th>Lun</th><th>Mar</th><th>Mi&eacute;</th><th>Jue</th><th>Vie</th><th>S&aacute;b</th></tr>
+      <tr><td><span class="date">&nbsp;</span></td><td><span class="date">&nbsp;</span></td><td><span class="date">1</span></td><td><span class="date">2</span></td><td><span class="date">3</span></td><td><span class="date">4</span></td><td><span class="date">5</span></td></tr>
+      <tr><td ><span class="date">6</span></td><td><span class="date">7</span></td><td><span class="date">8</span></td><td><span class="date">9</span></td><td><span class="date">10</span></td><td><span class="date">11</span></td><td><span class="date">12</span></td></tr>
+      <tr><td><span class="date">13</span></td><td><span class="date">14</span></td><td><span class="date">15</span></td><td><span class="date">16</span></td><td class="circulo"><span class="date">17</span></td><td><span class="date">18</span></td><td><span class="date">19</span></td></tr>
+      <tr><td><span class="date">20</span></td><td><span class="date">21</span></td><td><span class="date">22</span></td><td><span class="date">23</span></td><td><span class="date">24</span></td><td><span class="date">25</span></td><td><span class="date">26</span></td></tr>
+      <tr><td><span class="date">27</span></td><td><span class="date">28</span></td><td><span class="date">29</span></td><td><span class="date">30</span></td><td><span class="date">31</span></td><td><span class="date">&nbsp;</span></td><td><span class="date">&nbsp;</span></td></tr>
+      </table>
+    </div>
+      </div>
+
+  </section>
+
+  <footer class="site-footer">
+    <div class="final contenedor clearfix">
+      <div class="imagen">
+        <img src="" alt="imagen">
+      </div>
+      <div class="resumen contenedor">
+        <div class="preguntas-frecuentes">
+          <h3>Preguntas frecuentes</h3>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+        </div>
+        <div class="contacto">
+          <h3>Contacto</h3>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+        </div>
+        <div class="soporte">
+          <h3>Soporte</h3>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+        </div>
+        <div class="terminos-legales">
+          <h3>T&eacute;rminos Legales</h3>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+          <p>Lorem ipsum</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
