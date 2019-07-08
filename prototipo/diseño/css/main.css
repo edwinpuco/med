@@ -808,6 +808,84 @@ div.info-doctor h3{
   padding: 2px;
   margin: 5px;
 }
+/*index*/
+#movimiento-izq{
+  position: relative;
+  padding: 2px;
+  /*-webkit-animation-name:izq;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;*/
+  -webkit-animation: movimiento-izq  5s alternate; /* Safari 4+ */
+  -moz-animation: movimiento-izq  5s alternate; /* Fx 5+ */
+  -o-animation: movimiento-izq  5s alternate; /* Opera 12+ */
+  animation: movimiento-izq  5s alternate; /* IE 10+, Fx 29+ */
+}
+@-webkit-keyframes movimiento-izq {
+  from { left: -200%; }
+  to { left: 0%; }
+}
+@-moz-keyframes movimiento-izq {
+  from { left: -200%; }
+  to { left: 0%; }
+}
+@-o-keyframes movimiento-izq{
+  from { left: -200%; }
+  to { left: 0%; }
+}
+@keyframes movimiento-izq{
+  from { left: -200%; }
+  to { left: 0%; }
+}
+#movimiento-der{
+  position: relative;
+  padding: -2px;
+  -webkit-animation: movimiento-der  5s; /* Safari 4+ */
+  -moz-animation: movimiento-der  5s; /* Fx 5+ */
+  -o-animation: movimiento-der  5s; /* Opera 12+ */
+  animation: movimiento-der  5s; /* IE 10+, Fx 29+ */
+}
+@-webkit-keyframes movimiento-der {
+  from { left: 200%; }
+  to { left: 0%; }
+}
+@-moz-keyframes movimiento-der {
+  from { left: 200%; }
+  to { left: 0%; }
+}
+@-o-keyframes movimiento-der{
+  from { left: 200%; }
+  to { left: 0%; }
+}
+@keyframes movimiento-der{
+  from { left: 200%; }
+  to { left: 0%; }
+}
+#movimiento-arr{
+  position: relative;
+  padding: 0px;
+  -webkit-animation: movimiento-arr 5s; /* Safari 4+ */
+  -moz-animation: movimiento-arr 5s; /* Fx 5+ */
+  -o-animation: movimiento-arr 5s; /* Opera 12+ */
+  animation: movimiento-arr 5s; /* IE 10+, Fx 29+ */
+}
+@-webkit-keyframes movimiento-arr {
+  from {bottom: -150px; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+@-moz-keyframes movimiento-arr {
+  from {bottom: -150px; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+@-o-keyframes movimiento-arr{
+  from {bottom: -150px; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+@keyframes movimiento-arr{
+  from {bottom: -150px; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+
 
 
 
